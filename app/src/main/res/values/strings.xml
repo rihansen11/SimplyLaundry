@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Simply Laundry</string>
+    <string name="history">History</string>
+    <string name="tentang_aplikasi">Tentang Aplikasi</string>
+    <string name="desc">
+        Masukan data sesuai dengan barang-barang yang akan anda laundry.
+        Pastikan barang Daily Kiloan yang akan ditimbang dalam keadaan kering.
+    </string>
+    <string name="logo">Logo</string>
+    <string name="nama_anda">Nama Anda</string>
+    <string name="jumlah_kiloan">Jumlah Kiloan (Kg)</string>
+    <string name="jenis_baju">Jenis pelayanan: - Reguler (3 hari) Rp.6000,-/Kg
+                                -Expres (6 jam) Rp.15.000 - Fast (3 jam) Rp.20.000.</string>
+    <string name="masuk_harga">Masukan Harga</string>
+    <string name="masukan_harga">Masukan Sesuai Harga Yang Tertera:</string>
+    <string name="mulai">MULAI</string>
+    <string name="kembali">Kembali</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="copyright">Hitung BMI merupakan sebuah aplikasi Android untuk menghitung
+        body mass index (BMI) sehingga seseorang dapat mengetahui apakah
+        berat badannya ideal, gemuk atau kurus.\n\nAplikasi ini dibuat untuk kelas
+        Mobpro 1.\n\nCopyright © 2024 Rafa Suryaputra.\nAll rights reserved.</string>
+    <string name="bagikan_template">Jumlah Kiloan: %1$s kg\n
+        Tinggi badan: %2$s cm\n
+        Jenis kelamin: %3$s \n\n
+        Bmi: %4$.2f\n%5$s</string>
+    <string name="input_invalid">Tidak Boleh Kosong</string>
+</resources>
