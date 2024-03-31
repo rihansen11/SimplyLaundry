@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simply Laundry</string>
+    <string name="history">Histori</string>
+    <string name="nama_anda">Nama Anda</string>
+    <string name="jumlah_kiloan">Jumlah Kiloan</string>
+    <string name="reset">Mengatur Ulang</string>
+    <string name="kembali">Kembali</string>
+    <string name="bagikan">Bagikan</string>
+    <string name="input_invalid">Tidak Boleh Kosong</string>
+</resources>
