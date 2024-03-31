@@ -13,9 +13,7 @@ import org.examle.simplylaundry.screens.MainScreen
 fun SetupNavigation(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = Screen.Home.route){
         composable(route = Screen.Home.route){
-            MainScreen(navController, onNavigationToHistory = {text ->
-                navController.navigate("${Screen.History.route}/$text")
-            })
+            MainScreen(navController)
         }
         composable(route = Screen.About.route) {
             AboutScreen(navController)

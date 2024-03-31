@@ -68,7 +68,7 @@ fun ErrorHint(isError: Boolean){
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 
-fun MainScreen(navController: NavHostController, onNavigationToHistory: (String) -> Unit) {
+fun MainScreen(navController: NavHostController) {
     var name by rememberSaveable {
         mutableStateOf("")
     }
@@ -109,13 +109,7 @@ fun MainScreen(navController: NavHostController, onNavigationToHistory: (String)
                     Text(text = stringResource(id = R.string.app_name))
                 },
                 actions = {
-                    IconButton(onClick = {
-                        navController.navigate("${Screen.History.route}/{text}")
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.baseline_history_24),
-                            contentDescription = stringResource(id = R.string.history))
-                    }
+
                     IconButton(
                         onClick = { navController.navigate(Screen.About.route) }
                     ) {
@@ -194,17 +188,18 @@ fun MainScreen(navController: NavHostController, onNavigationToHistory: (String)
 
             Row(modifier = Modifier.padding(top = 10.dp)){
                 Button(
+
                     onClick = {
-                        onNavigationToHistory(resultText(name,kiloan.toInt(),jenisPelayanan, result))
+
                         name = ""
                         kiloan = ""
                         jenisPelayanan[0]
                         result = 0
                     },
                     modifier = Modifier.padding(top = 8.dp),
-                    contentPadding = PaddingValues(horizontal = 14.dp, vertical = 16.dp)
+                    contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
                 ) {
-                    Text(text = stringResource(id = R.string.tambahkan_list))
+                    Text(text = stringResource(id = R.string.reset))
                 }
                 Spacer(modifier = Modifier.width(10.dp))
                 Button(

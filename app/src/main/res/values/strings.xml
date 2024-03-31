@@ -23,13 +23,13 @@
 
     <string name="masuk_harga">Masukan Harga</string>
     <string name="masukan_harga">Masukan Sesuai Harga Yang Tertera:</string>
-    <string name="tambahkan_list">Tambahkan diList</string>
+    <string name="reset">Reset</string>
     <string name="kembali">Kembali</string>
     <string name="bagikan">Bagikan</string>
     <string name="copyright">SimplyLaundry merupakan aplikasi android untuk membantu
          para pelanggan laundry untuk melakukan proses barang apa saja yang
-        akan dilaundry.\n\nAplikasi ini dibuat untuk Assesment1
-        Mobpro 1.\n\nCopyright © 2024 Rihansen Purba.\nAll rights reserved.</string>
+        akan dilaundry.\n\n Aplikasi ini dibuat untuk Assesment1Mobpro 1.\n\nCopyright © 2024 Rihansen Purba.
+        \nAll rights reserved.</string>
     <string name="bagikan_template">Reguler: %1$s kg\n
         Tinggi badan: %2$s cm\n
         Jenis kelamin: %3$s \n\n
