@@ -30,7 +30,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -47,6 +46,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import org.examle.simplylaundry.R
 import org.examle.simplylaundry.navigation.Screen
+import java.text.NumberFormat
+import java.util.Currency
+import java.util.Locale
 
 
 @Composable
@@ -97,7 +99,7 @@ fun MainScreen(navController: NavHostController) {
         mutableStateOf(false)
     }
     var result by rememberSaveable {
-        mutableIntStateOf(0)
+        mutableStateOf("")
     }
     val context = LocalContext.current
 
@@ -175,7 +177,19 @@ fun MainScreen(navController: NavHostController) {
                         modifier = Modifier
                         .selectable(
                             selected = jenisPelayanan == option,
-                            onClick = { jenisPelayanan = option },
+                            onClick = {
+                                jenisPelayanan = option
+                                nameError = (name == "")
+                                kiloanError = (kiloan == "" || kiloan == "0")
+                                pelayananError = (jenisPelayanan == "")
+
+                                if(nameError || kiloanError || pelayananError){
+                                    return@selectable
+                                } else {
+                                    result = getJenisPelayanan(jenisPelayanan = jenisPelayanan, kiloan =kiloan.toInt() )
+                                }
+
+                            },
                             role = Role.RadioButton
                         )
                         .fillMaxWidth(0.6f)
@@ -194,7 +208,7 @@ fun MainScreen(navController: NavHostController) {
                         name = ""
                         kiloan = ""
                         jenisPelayanan[0]
-                        result = 0
+                        result = ""
                     },
                     modifier = Modifier.padding(top = 8.dp),
                     contentPadding = PaddingValues(horizontal = 32.dp, vertical = 16.dp)
@@ -234,7 +248,7 @@ fun MainScreen(navController: NavHostController) {
             ) {
                 Text(text = "Tampilkan Hasilnya")
             }
-            if (0 != result){
+            if ( result != "" ){
                 Text(text = resultText(name,kiloan.toInt(),jenisPelayanan,result))
             }
         }
@@ -253,12 +267,30 @@ fun RadioOptions(
     }
 }
 
-fun getJenisPelayanan(jenisPelayanan: String, kiloan:Int) : Int{
+fun getJenisPelayanan(jenisPelayanan: String, kiloan:Int) : String{
     return when(jenisPelayanan){
-        "Reguler (3 hari) Rp.6000" -> 6000 * kiloan
-        "Express (6 jam) Rp.15.000" -> 15000 * kiloan
-        "Fast (3 jam) Rp.20.000" -> 20000 * kiloan
-        else -> 6000 * kiloan
+        "Reguler (3 hari) Rp.6000" -> {
+            val format = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+            format.currency = Currency.getInstance("IDR")
+            format.format(6000 * kiloan)
+        }
+        "Express (6 jam) Rp.15.000" -> {
+            val format = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+            format.currency = Currency.getInstance("IDR")
+             format.format(15000 * kiloan)
+
+        }
+        "Fast (3 jam) Rp.20.000" -> {
+            val format = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+            format.currency = Currency.getInstance("IDR")
+            format.format(20000 * kiloan)
+
+        }
+        else ->  {
+            val format = NumberFormat.getCurrencyInstance(Locale("in","ID"))
+            format.currency = Currency.getInstance("IDR")
+            format.format(6000 * kiloan)
+        }
     }
 }
 
@@ -273,6 +305,6 @@ fun shareData(context: Context, message: String) {
     }
 }
 
-fun resultText(nama:String,kiloan: Int,jenisPelayanan: String, result: Int) : String{
+fun resultText(nama:String,kiloan: Int,jenisPelayanan: String, result: String) : String{
     return "$nama dengan $kiloan kg dalam $jenisPelayanan maka hasil harga $result"
 }
